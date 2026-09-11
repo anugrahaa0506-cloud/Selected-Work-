@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anugraha S — Content Writer & Marketer portfolio." />
+  <title>Anugraha S — Content Writer & Marketer</title>
+
+  <!-- Tailwind CSS Play CDN: this keeps the portfolio as one HTML file. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-page: #f4f5f8;
+      --color-panel: #eef0f5;
+      --color-card: #f5f6f9;
+      --color-ink: #182238;
+      --color-muted: #657086;
+      --color-line: #d9dce4;
+      --color-accent: #7da8ef;
+      --color-accent-soft: #dbe8ff;
+      --color-lilac: #cfc6ee;
+    }
+
+    @layer base {
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: #f4f5f8;
+        color: #182238;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+    }
+
+    @layer components {
+      .panel {
+        background: rgba(238,240,245,.92);
+        border: 1px solid rgba(255,255,255,.95);
+        box-shadow:
+          0 18px 45px rgba(42, 49, 67, .12),
+          inset 0 1px 0 rgba(255,255,255,.85);
+        border-radius: 28px;
+      }
+
+      .inner-card {
+        background: rgba(246,247,250,.72);
+        border: 1px solid #d9dce4;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
+        border-radius: 18px;
+      }
+
+      .social-btn {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(145deg, #f9fafc, #e6e8ee);
+        border: 1px solid #d8dbe3;
+        box-shadow: 0 5px 10px rgba(39,48,68,.12), inset 0 1px 0 white;
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .social-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 20px rgba(39,48,68,.16), inset 0 1px 0 white;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 5px 10px;
+        background: #e3e6ef;
+        color: #535d73;
+        font-size: 11px;
+        line-height: 1;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #f1f3f7;
+        border: 1px solid #d9dce4;
+        min-height: 252px;
+        transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-7px);
+        border-color: #c7d0df;
+        box-shadow: 0 18px 35px rgba(34,44,63,.15);
+      }
+
+      .project-art {
+        height: 132px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg,#dfe7f4,#f5f6f8);
+      }
+
+      .featured-project {
+        min-height: 326px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        background: #d9edf0;
+        border: 1px solid rgba(255,255,255,.8);
+      }
+
+      .featured-project::after {
+        content: "";
+        position: absolute;
+        inset: auto -10% -45% 10%;
+        height: 70%;
+        border-radius: 50%;
+        background: rgba(102, 181, 193, .20);
+        filter: blur(12px);
+        pointer-events: none;
+      }
+
+      .mini-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 11px;
+        border-radius: 9px;
+        background: #cfe0ff;
+        color: #4d78c5;
+        font-size: 11px;
+        font-weight: 800;
+        transition: background .2s ease, transform .2s ease;
+      }
+      .mini-link:hover { background: #bed4fc; transform: translateY(-1px); }
+
+      .soft-link {
+        border: 1px solid #d7dbe4;
+        background: rgba(248,249,251,.8);
+        transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      }
+      .soft-link:hover {
+        transform: translateX(4px);
+        background: white;
+        box-shadow: 0 10px 20px rgba(42,49,67,.08);
+      }
+.profile-photo { transform: rotate(-7deg) scale(1.06); transform-origin: 52% 45%; }
+.clock-digits {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -.075em;
+      }
+      .scroll-reveal { opacity: 1; transform: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { scrollbar-width: none; }
+
+      @media (max-width: 1023px) {
+        .project-card { min-height: 238px; }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="min-h-screen p-3 sm:p-5 lg:p-7">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-[352px_minmax(0,1fr)] lg:items-start">
+
+        <!-- LEFT COLUMN -->
+        <aside class="panel p-5 sm:p-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-48px)] lg:overflow-y-auto hide-scrollbar">
+          <section aria-label="Profile">
+            <div class="flex items-center gap-4">
+              <div class="profile-avatar h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                <div class="h-full w-full flex items-center justify-center bg-slate-200 text-slate-500 text-3xl font-semibold">AS</div>
+              </div>
+              <div>
+                <h1 class="text-[23px] font-extrabold tracking-[-.04em] text-[#182238]">Anugraha S</h1>
+                <p class="mt-1 text-[15px] leading-5 text-[#55627a]">Content Writer &amp; Marketer</p>
+              </div>
+            </div>
+
+            <div class="mt-5 flex gap-3">
+              <!-- GitHub -->
+              <a class="social-btn" href="https://github.com/anugrahaa0506-cloud" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" class="h-7 w-7 fill-[#536fa9]" aria-hidden="true">
+                  <path d="M12 .6a11.4 11.4 0 0 0-3.61 22.21c.57.1.78-.25.78-.55v-2.16c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.95.1-.74.4-1.25.73-1.54-2.54-.29-5.2-1.27-5.2-5.65 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.74.11 3.03.74.8 1.18 1.82 1.18 3.07 0 4.39-2.67 5.36-5.21 5.64.41.36.78 1.07.78 2.15v3.19c0 .3.2.65.79.54A11.4 11.4 0 0 0 12 .6Z"/>
+                </svg>
+              </a>
+
+              <!-- Substack -->
+              <a class="social-btn" href="https://substack.com/@annuuing" target="_blank" rel="noopener noreferrer" aria-label="Substack">
+                <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true">
+                  <path fill="#536fa9" d="M4 3h16v2H4zM4 7h16v2H4zM4 11h16v2H4z"/>
+                  <path fill="#536fa9" d="M4 15h16v6l-8-4.2L4 21v-6Z"/>
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a class="social-btn" href="https://www.linkedin.com/in/anugraha-s-a43b33205/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" class="h-7 w-7" aria-hidden="true">
+                  <path fill="#536fa9" d="M5.2 7.1A2.1 2.1 0 1 0 5.2 3a2.1 2.1 0 0 0 0 4.1ZM3.5 9h3.4v11.3H3.5V9Zm5.5 0h3.3v1.55h.05c.46-.87 1.58-1.78 3.26-1.78 3.49 0 4.14 2.3 4.14 5.3v6.23h-3.4v-5.52c0-1.32-.02-3.01-1.84-3.01-1.85 0-2.13 1.44-2.13 2.92v5.61H9V9Z"/>
+                </svg>
+              </a>
+            </div>
+          </section>
+
+          <section class="mt-7">
+            <h2 class="text-[13px] font-extrabold uppercase tracking-[.12em] text-[#27354c]">Skills</h2>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="pill">Copywriting</span>
+              <span class="pill">Editing</span>
+              <span class="pill">SEO</span>
+              <span class="pill">Branding</span>
+              <span class="pill">Structured Authoring</span>
+              <span class="pill">AI-assisted Content</span>
+            </div>
+          </section>
+
+          <section class="mt-7">
+            <h2 class="text-[13px] font-extrabold uppercase tracking-[.12em] text-[#27354c]">Tool Kit</h2>
+            <p class="mt-3 text-[13px] leading-6 text-[#5d687d]">
+              ChatGPT · Claude · Grammarly · MS Word · Canva · Semrush · Google Analytics · Search Console · Ahrefs · Oxygen XML · ClickUp · Jira
+            </p>
+          </section>
+
+          <!-- About Me -->
+          <section class="mt-7 inner-card p-5">
+            <div class="flex items-center justify-between">
+              <h2 class="text-[13px] font-extrabold uppercase tracking-[.12em] text-[#27354c]">About Me</h2>
+              <span class="h-2 w-2 rounded-full bg-[#aabfe8]"></span>
+            </div>
+            <div class="mt-4 space-y-3 text-[13px] leading-[1.7] text-[#5d687d]">
+              <p>I’m Anugraha, a Content Writer and Marketer with 3+ years of experience in creative content, structured authoring, and SEO. I write and strategize content that reads well and converts. I’ve worked with travel and lifestyle brands to build visibility and create content with the right positioning.</p>
+              <p>I also like experimenting with new tools and ways of working, especially when they can make the process smarter without taking the human part out of it.</p>
+              <a href="#portfolio" class="inline-flex items-center gap-2 font-bold text-[#557fc8] hover:gap-3 transition-all">
+                Here’s a little peek at my work <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </section>
+        </aside>
+
+        <!-- RIGHT COLUMN -->
+        <div class="min-w-0 space-y-5">
+
+          <!-- PROJECT GRID -->
+          <section id="portfolio" class="panel p-4 sm:p-5 scroll-reveal">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+
+              <!-- Project 1 -->
+              <a class="project-card group" href="https://www.allcottonandlinen.com/blogs/news/living-room-curtain-ideas" target="_blank" rel="noopener noreferrer">
+                <div class="project-art">
+                  <div class="absolute inset-x-7 top-5 h-20 rounded-t-[18px] bg-[#eee5da] shadow-inner"></div>
+                  <div class="absolute left-12 top-7 h-24 w-8 -rotate-2 rounded-b-full bg-[#f7f1e9] shadow-sm"></div>
+                  <div class="absolute right-12 top-7 h-24 w-8 rotate-2 rounded-b-full bg-[#f7f1e9] shadow-sm"></div>
+                  <div class="absolute bottom-4 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-[#b6a48d]/30"></div>
+                  <div class="absolute left-1/2 top-7 -translate-x-1/2 text-3xl">✦</div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Living Room Curtain Ideas</h3>
+                    <span class="text-[10px] font-bold text-[#78849a]">ARTICLE</span>
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="pill">Lifestyle</span><span class="pill">SEO</span><span class="pill">Home</span>
+                  </div>
+                  <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
+                </div>
+              </a>
+
+              <!-- Project 2 -->
+              <a class="project-card group" href="https://www.allcottonandlinen.com/pages/designer-trade-program" target="_blank" rel="noopener noreferrer">
+                <div class="project-art bg-gradient-to-br from-[#e8e4ef] to-[#f3f1f6]">
+                  <div class="absolute left-10 top-8 h-16 w-28 rounded-xl bg-[#d0c7dd] shadow-md"></div>
+                  <div class="absolute left-[62px] top-14 h-9 w-24 rounded-lg bg-[#f8f7fa]"></div>
+                  <div class="absolute right-10 top-7 text-4xl">✎</div>
+                  <div class="absolute bottom-5 left-12 h-2 w-20 rounded-full bg-[#9b8daf]/30"></div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Designer Trade Program</h3>
+                    <span class="text-[10px] font-bold text-[#78849a]">WEB COPY</span>
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="pill">Brand</span><span class="pill">Web</span><span class="pill">B2B</span>
+                  </div>
+                  <div class="mt-3"><span class="mini-link">View <span>↗</span></span></div>
+                </div>
+              </a>
+
+              <!-- Project 3 -->
+              <a class="project-card group" href="https://www.allcottonandlinen.com/blogs/news/what-is-hygge-ways-to-create-warmth-and-well-being-at-home" target="_blank" rel="noopener noreferrer">
+                <div class="project-art bg-gradient-to-br from-[#eee9df] to-[#f7f3ec]">
+                  <div class="absolute left-1/2 top-7 h-16 w-16 -translate-x-1/2 rounded-full border-4 border-[#b9a78c]/50"></div>
+                  <div class="absolute left-1/2 top-12 h-8 w-8 -translate-x-1/2 rounded-full bg-[#f4c879]/80 blur-[1px]"></div>
+                  <div class="absolute bottom-5 left-12 h-5 w-24 rounded-t-full bg-[#b8aa96]/35"></div>
+                  <div class="absolute bottom-5 right-12 h-8 w-3 rounded-full bg-[#c5b9a7]"></div>
+                  <div class="absolute bottom-5 right-10 h-4 w-7 rounded-full bg-[#c5b9a7]"></div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">What Is Hygge?</h3>
+                    <span class="text-[10px] font-bold text-[#78849a]">ARTICLE</span>
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="pill">Lifestyle</span><span class="pill">Wellness</span><span class="pill">SEO</span>
+                  </div>
+                  <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
+                </div>
+              </a>
+
+              <!-- Project 4 -->
+              <a class="project-card group" href="https://blogs.travelfika.com/blogs/kyoto-food-tours" target="_blank" rel="noopener noreferrer">
+                <div class="project-art bg-gradient-to-br from-[#e6edf2] to-[#f3f5f6]">
+                  <div class="absolute left-9 top-7 h-20 w-16 rounded-[10px] bg-[#c6d7e1]"></div>
+                  <div class="absolute left-12 top-10 h-14 w-10 rounded-[8px] bg-[#e7f0f4]"></div>
+                  <div class="absolute right-12 top-7 text-4xl">🍜</div>
+                  <div class="absolute bottom-6 left-1/2 h-3 w-28 -translate-x-1/2 rounded-full bg-[#8da3b2]/25"></div>
+                </div>
+                <div class="p-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Kyoto Food Guide</h3>
+                    <span class="text-[10px] font-bold text-[#78849a]">TRAVEL</span>
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="pill">Travel</span><span class="pill">Guide</span><span class="pill">SEO</span>
+                  </div>
+                  <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <!-- FEATURED WORK -->
+          <section class="panel p-4 sm:p-5 scroll-reveal">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <a href="https://anugrahaa0506-cloud.github.io/Briefcase/" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[300px]">
+                <div class="project-art h-[175px] bg-[linear-gradient(125deg,#68b8c9_0%,#a7d6d9_42%,#dce8e9_100%)]">
+                  <div class="absolute -left-12 -top-16 h-48 w-48 rounded-full border-[16px] border-white/25"></div>
+                  <div class="absolute right-[-35px] bottom-[-55px] h-48 w-48 rounded-full border-[17px] border-[#57aa9b]/25"></div>
+                  <div class="absolute left-[8%] right-[8%] top-[14%] bottom-[13%] rounded-xl bg-white/40 p-3 backdrop-blur-[2px] shadow-xl">
+                    <div class="grid h-full grid-cols-3 gap-2">
+                      <div class="rounded-lg bg-[#203747]/95 p-2.5"><div class="h-1.5 w-9 rounded-full bg-[#9ce3d4]"></div><div class="mt-6 space-y-2"><div class="h-1.5 w-full rounded-full bg-white/20"></div><div class="h-1.5 w-4/5 rounded-full bg-white/20"></div><div class="h-1.5 w-3/5 rounded-full bg-white/20"></div></div></div>
+                      <div class="col-span-2 rounded-lg bg-[#f5f7f8]/95 p-2.5"><div class="flex justify-between"><div class="h-2 w-20 rounded-full bg-[#6c8292]/25"></div><div class="h-5 w-5 rounded-full bg-[#a5d7d4]"></div></div><div class="mt-3 grid grid-cols-3 gap-2"><div class="h-10 rounded-md bg-[#d9e9ea]"></div><div class="h-10 rounded-md bg-[#dfe8f5]"></div><div class="h-10 rounded-md bg-[#ece3d6]"></div></div></div>
+                    </div>
+                  </div>
+                  <span class="absolute right-6 top-5 text-2xl">✦</span>
+                </div>
+                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-[#7a8497]">Featured work</p><h3 class="mt-1 text-[17px] font-extrabold text-[#1c2a42]">Briefcase</h3></div><span class="text-[10px] font-bold text-[#78849a]">TOOL</span></div><p class="mt-2 text-[12px] leading-5 text-[#667187]">A workflow tool I worked on for better content processes.</p><div class="mt-3"><span class="mini-link">Explore <span>↗</span></span></div></div>
+              </a>
+              <a href="https://blogs.travelfika.com/blogs/experience-the-magic-of-miami-a-summer-escape-in-the-sunshine-city" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[300px]">
+                <div class="project-art h-[175px] bg-gradient-to-br from-[#d8e8f0] to-[#f1e9df]">
+                  <div class="absolute inset-x-10 bottom-7 h-3 rounded-full bg-[#6f9bb0]/20"></div><div class="absolute bottom-10 left-12 h-20 w-3 rounded-full bg-[#6e8f83]"></div><div class="absolute bottom-10 left-[39px] h-8 w-12 rounded-full bg-[#78a38b]/60"></div><div class="absolute bottom-10 right-12 h-24 w-14 rounded-t-full bg-[#a9cfe0]/80"></div><div class="absolute bottom-10 right-16 h-28 w-5 rounded-full bg-[#d6b083]/70"></div><div class="absolute right-9 top-6 text-4xl">☀</div><div class="absolute left-10 top-7 h-12 w-12 rounded-full bg-[#f5cf88]/80 blur-[1px]"></div>
+                </div>
+                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-[#7a8497]">Featured work</p><h3 class="mt-1 text-[17px] font-extrabold text-[#1c2a42]">Experience the Magic of Miami</h3></div><span class="text-[10px] font-bold text-[#78849a]">TRAVEL</span></div><div class="mt-3 flex flex-wrap gap-1.5"><span class="pill">Travel</span><span class="pill">SEO</span><span class="pill">Lifestyle</span></div><div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div></div>
+              </a>
+            </div>
+          </section>
+
+          <!-- BOTTOM ROW -->
+          <section class="grid grid-cols-1 gap-5 xl:grid-cols-[.78fr_1.25fr_.78fr] scroll-reveal">
+
+            <!-- Resume / writing samples -->
+            <div class="spa
