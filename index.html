@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Anugraha S — Content Writer & Marketer portfolio." />
   <title>Anugraha S — Content Writer & Marketer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS Play CDN: this keeps the portfolio as one HTML file. -->
+  <!-- Final v2: requested layout/content-only changes. Tailwind CSS Play CDN keeps the portfolio as one HTML file. -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
@@ -27,9 +30,9 @@
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        background: #f4f5f8;
+        background: #eee9ff;
         color: #182238;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
       a { color: inherit; text-decoration: none; }
       button { font: inherit; }
@@ -87,7 +90,7 @@
         border-radius: 18px;
         background: #f1f3f7;
         border: 1px solid #d9dce4;
-        min-height: 252px;
+        min-height: 238px;
         transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
       }
       .project-card:hover {
@@ -97,7 +100,7 @@
       }
 
       .project-art {
-        height: 132px;
+        height: 126px;
         position: relative;
         overflow: hidden;
         background: linear-gradient(135deg,#dfe7f4,#f5f6f8);
@@ -140,12 +143,13 @@
       .soft-link {
         border: 1px solid #d7dbe4;
         background: rgba(248,249,251,.8);
-        transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
       }
-      .soft-link:hover {
-        transform: translateX(4px);
-        background: white;
-        box-shadow: 0 10px 20px rgba(42,49,67,.08);
+      .resume-link { background: #e9e0f7; border-color: #d9ccef; }
+      .samples-link { background: #dff0ee; border-color: #c5e1dd; }
+      .resume-link:hover, .samples-link:hover {
+        background: inherit;
+        transform: none;
+        box-shadow: none;
       }
 .profile-photo { transform: rotate(-7deg) scale(1.06); transform-origin: 52% 45%; }
 .clock-digits {
@@ -159,6 +163,11 @@
       @media (max-width: 1023px) {
         .project-card { min-height: 238px; }
       }
+
+      @media (min-width: 1024px) {
+        html, body { overflow: hidden; height: 100%; }
+        body { zoom: 0.74; }
+      }
     }
   </style>
 </head>
@@ -166,10 +175,11 @@
 <body>
   <main class="min-h-screen p-3 sm:p-5 lg:p-7">
     <div class="mx-auto max-w-[1500px]">
-      <div class="grid grid-cols-1 gap-5 lg:grid-cols-[352px_minmax(0,1fr)] lg:items-start">
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
 
         <!-- LEFT COLUMN -->
-        <aside class="panel p-5 sm:p-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-48px)] lg:overflow-y-auto hide-scrollbar">
+        <aside class="min-w-0">
+          <div class="panel p-5 sm:p-6">
           <section aria-label="Profile">
             <div class="flex items-center gap-4">
               <div class="profile-avatar h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-lg">
@@ -224,19 +234,22 @@
               ChatGPT · Claude · Grammarly · MS Word · Canva · Semrush · Google Analytics · Search Console · Ahrefs · Oxygen XML · ClickUp · Jira
             </p>
           </section>
+          </div>
 
-          <!-- About Me -->
-          <section class="mt-7 inner-card p-5">
-            <div class="flex items-center justify-between">
-              <h2 class="text-[13px] font-extrabold uppercase tracking-[.12em] text-[#27354c]">About Me</h2>
-              <span class="h-2 w-2 rounded-full bg-[#aabfe8]"></span>
-            </div>
-            <div class="mt-4 space-y-3 text-[13px] leading-[1.7] text-[#5d687d]">
-              <p>I’m Anugraha, a Content Writer and Marketer with 3+ years of experience in creative content, structured authoring, and SEO. I write and strategize content that reads well and converts. I’ve worked with travel and lifestyle brands to build visibility and create content with the right positioning.</p>
-              <p>I also like experimenting with new tools and ways of working, especially when they can make the process smarter without taking the human part out of it.</p>
-              <a href="#portfolio" class="inline-flex items-center gap-2 font-bold text-[#557fc8] hover:gap-3 transition-all">
-                Here’s a little peek at my work <span aria-hidden="true">→</span>
-              </a>
+          <!-- ABOUT ME -->
+          <section class="panel mt-5 p-5 sm:p-6">
+            <div class="inner-card p-5">
+              <div class="flex items-center justify-between">
+                <h2 class="text-[14px] font-extrabold uppercase tracking-[.12em] text-[#27354c]">About Me</h2>
+                <span class="h-2 w-2 rounded-full bg-[#aabfe8]"></span>
+              </div>
+              <div class="mt-4 space-y-3 text-[13px] leading-[1.7] text-[#5d687d]">
+                <p>I’m Anugraha, a Content Writer and Marketer with 3+ years of experience in creative content, structured authoring, and SEO. I write and strategize content that reads well and converts. I’ve worked with travel and lifestyle brands to build visibility and create content with the right positioning.</p>
+                <p>I also like experimenting with new tools and ways of working, especially when they can make the process smarter without taking the human part out of it.</p>
+                <a href="#portfolio" class="inline-flex items-center gap-2 font-bold text-[#557fc8] hover:gap-3 transition-all">
+                  Here’s a little peek at my work <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </section>
         </aside>
@@ -250,20 +263,11 @@
 
               <!-- Project 1 -->
               <a class="project-card group" href="https://www.allcottonandlinen.com/blogs/news/living-room-curtain-ideas" target="_blank" rel="noopener noreferrer">
-                <div class="project-art">
-                  <div class="absolute inset-x-7 top-5 h-20 rounded-t-[18px] bg-[#eee5da] shadow-inner"></div>
-                  <div class="absolute left-12 top-7 h-24 w-8 -rotate-2 rounded-b-full bg-[#f7f1e9] shadow-sm"></div>
-                  <div class="absolute right-12 top-7 h-24 w-8 rotate-2 rounded-b-full bg-[#f7f1e9] shadow-sm"></div>
-                  <div class="absolute bottom-4 left-1/2 h-3 w-24 -translate-x-1/2 rounded-full bg-[#b6a48d]/30"></div>
-                  <div class="absolute left-1/2 top-7 -translate-x-1/2 text-3xl">✦</div>
-                </div>
+                <div class="project-art"><img src="https://www.voilavoile.com/upload/image/202604/aura-natural-linen-cotton-blend-sheer-curtain-img-2B1GeLwc9HS0vJk4vn1I3o-large.jpg" alt="Living room with linen curtains" class="h-full w-full object-cover" loading="lazy" /></div>
                 <div class="p-4">
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Living Room Curtain Ideas</h3>
-                    <span class="text-[10px] font-bold text-[#78849a]">ARTICLE</span>
-                  </div>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="pill">Lifestyle</span><span class="pill">SEO</span><span class="pill">Home</span>
+                    <h3 class="text-[16px] font-extrabold leading-tight text-[#1c2a42]">Living Room Curtain Ideas</h3>
+                    <span class="text-[11px] font-bold text-[#78849a]">ARTICLE</span>
                   </div>
                   <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
                 </div>
@@ -271,19 +275,11 @@
 
               <!-- Project 2 -->
               <a class="project-card group" href="https://www.allcottonandlinen.com/pages/designer-trade-program" target="_blank" rel="noopener noreferrer">
-                <div class="project-art bg-gradient-to-br from-[#e8e4ef] to-[#f3f1f6]">
-                  <div class="absolute left-10 top-8 h-16 w-28 rounded-xl bg-[#d0c7dd] shadow-md"></div>
-                  <div class="absolute left-[62px] top-14 h-9 w-24 rounded-lg bg-[#f8f7fa]"></div>
-                  <div class="absolute right-10 top-7 text-4xl">✎</div>
-                  <div class="absolute bottom-5 left-12 h-2 w-20 rounded-full bg-[#9b8daf]/30"></div>
-                </div>
+                <div class="project-art"><img src="https://cdn.prod.website-files.com/63bfe64e4a0bc7af06037267/641ae7f8ff0f8653aff7d990_designservice.jpg" alt="Interior design fabric consultation" class="h-full w-full object-cover" loading="lazy" /></div>
                 <div class="p-4">
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Designer Trade Program</h3>
-                    <span class="text-[10px] font-bold text-[#78849a]">WEB COPY</span>
-                  </div>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="pill">Brand</span><span class="pill">Web</span><span class="pill">B2B</span>
+                    <h3 class="text-[16px] font-extrabold leading-tight text-[#1c2a42]">Designer Trade Program</h3>
+                    <span class="text-[11px] font-bold text-[#78849a]">WEB COPY</span>
                   </div>
                   <div class="mt-3"><span class="mini-link">View <span>↗</span></span></div>
                 </div>
@@ -291,20 +287,11 @@
 
               <!-- Project 3 -->
               <a class="project-card group" href="https://www.allcottonandlinen.com/blogs/news/what-is-hygge-ways-to-create-warmth-and-well-being-at-home" target="_blank" rel="noopener noreferrer">
-                <div class="project-art bg-gradient-to-br from-[#eee9df] to-[#f7f3ec]">
-                  <div class="absolute left-1/2 top-7 h-16 w-16 -translate-x-1/2 rounded-full border-4 border-[#b9a78c]/50"></div>
-                  <div class="absolute left-1/2 top-12 h-8 w-8 -translate-x-1/2 rounded-full bg-[#f4c879]/80 blur-[1px]"></div>
-                  <div class="absolute bottom-5 left-12 h-5 w-24 rounded-t-full bg-[#b8aa96]/35"></div>
-                  <div class="absolute bottom-5 right-12 h-8 w-3 rounded-full bg-[#c5b9a7]"></div>
-                  <div class="absolute bottom-5 right-10 h-4 w-7 rounded-full bg-[#c5b9a7]"></div>
-                </div>
+                <div class="project-art"><img src="https://hyggeandhome.de/wp-content/uploads/2024/11/Wohnzimmer-im-Hygge-Stil-einrichten-Schmucke-dein-Sofa-mit-kuscheligen-Textilien7565.jpg" alt="Cozy hygge living room" class="h-full w-full object-cover" loading="lazy" /></div>
                 <div class="p-4">
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">What Is Hygge?</h3>
-                    <span class="text-[10px] font-bold text-[#78849a]">ARTICLE</span>
-                  </div>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="pill">Lifestyle</span><span class="pill">Wellness</span><span class="pill">SEO</span>
+                    <h3 class="text-[16px] font-extrabold leading-tight text-[#1c2a42]">What Is Hygge?</h3>
+                    <span class="text-[11px] font-bold text-[#78849a]">ARTICLE</span>
                   </div>
                   <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
                 </div>
@@ -312,19 +299,11 @@
 
               <!-- Project 4 -->
               <a class="project-card group" href="https://blogs.travelfika.com/blogs/kyoto-food-tours" target="_blank" rel="noopener noreferrer">
-                <div class="project-art bg-gradient-to-br from-[#e6edf2] to-[#f3f5f6]">
-                  <div class="absolute left-9 top-7 h-20 w-16 rounded-[10px] bg-[#c6d7e1]"></div>
-                  <div class="absolute left-12 top-10 h-14 w-10 rounded-[8px] bg-[#e7f0f4]"></div>
-                  <div class="absolute right-12 top-7 text-4xl">🍜</div>
-                  <div class="absolute bottom-6 left-1/2 h-3 w-28 -translate-x-1/2 rounded-full bg-[#8da3b2]/25"></div>
-                </div>
+                <div class="project-art"><img src="https://explorebeyondthemap.com/wp-content/uploads/2025/09/Best-Street-Foods-in-Kyoto-e1758654598265.png" alt="Kyoto street food" class="h-full w-full object-cover" loading="lazy" /></div>
                 <div class="p-4">
                   <div class="flex items-start justify-between gap-3">
-                    <h3 class="text-[15px] font-extrabold leading-tight text-[#1c2a42]">Kyoto Food Guide</h3>
-                    <span class="text-[10px] font-bold text-[#78849a]">TRAVEL</span>
-                  </div>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="pill">Travel</span><span class="pill">Guide</span><span class="pill">SEO</span>
+                    <h3 class="text-[16px] font-extrabold leading-tight text-[#1c2a42]">Kyoto Food Guide</h3>
+                    <span class="text-[11px] font-bold text-[#78849a]">ARTICLE</span>
                   </div>
                   <div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div>
                 </div>
@@ -332,11 +311,11 @@
             </div>
           </section>
 
-          <!-- FEATURED WORK -->
+          <!-- SECOND PROJECT ROW -->
           <section class="panel p-4 sm:p-5 scroll-reveal">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <a href="https://anugrahaa0506-cloud.github.io/Briefcase/" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[300px]">
-                <div class="project-art h-[175px] bg-[linear-gradient(125deg,#68b8c9_0%,#a7d6d9_42%,#dce8e9_100%)]">
+              <a href="https://anugrahaa0506-cloud.github.io/Briefcase/" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[280px]">
+                <div class="project-art h-[160px] bg-[linear-gradient(125deg,#68b8c9_0%,#a7d6d9_42%,#dce8e9_100%)]">
                   <div class="absolute -left-12 -top-16 h-48 w-48 rounded-full border-[16px] border-white/25"></div>
                   <div class="absolute right-[-35px] bottom-[-55px] h-48 w-48 rounded-full border-[17px] border-[#57aa9b]/25"></div>
                   <div class="absolute left-[8%] right-[8%] top-[14%] bottom-[13%] rounded-xl bg-white/40 p-3 backdrop-blur-[2px] shadow-xl">
@@ -347,19 +326,123 @@
                   </div>
                   <span class="absolute right-6 top-5 text-2xl">✦</span>
                 </div>
-                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-[#7a8497]">Featured work</p><h3 class="mt-1 text-[17px] font-extrabold text-[#1c2a42]">Briefcase</h3></div><span class="text-[10px] font-bold text-[#78849a]">TOOL</span></div><p class="mt-2 text-[12px] leading-5 text-[#667187]">A workflow tool I worked on for better content processes.</p><div class="mt-3"><span class="mini-link">Explore <span>↗</span></span></div></div>
+                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="text-[17px] font-extrabold text-[#1c2a42]">Briefcase</h3></div><span class="text-[11px] font-bold text-[#78849a]">TOOL</span></div><p class="mt-2 text-[13px] leading-5 text-[#667187]">A workflow tool I worked on for better content processes.</p><div class="mt-3"><span class="mini-link">Explore <span>↗</span></span></div></div>
               </a>
-              <a href="https://blogs.travelfika.com/blogs/experience-the-magic-of-miami-a-summer-escape-in-the-sunshine-city" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[300px]">
-                <div class="project-art h-[175px] bg-gradient-to-br from-[#d8e8f0] to-[#f1e9df]">
-                  <div class="absolute inset-x-10 bottom-7 h-3 rounded-full bg-[#6f9bb0]/20"></div><div class="absolute bottom-10 left-12 h-20 w-3 rounded-full bg-[#6e8f83]"></div><div class="absolute bottom-10 left-[39px] h-8 w-12 rounded-full bg-[#78a38b]/60"></div><div class="absolute bottom-10 right-12 h-24 w-14 rounded-t-full bg-[#a9cfe0]/80"></div><div class="absolute bottom-10 right-16 h-28 w-5 rounded-full bg-[#d6b083]/70"></div><div class="absolute right-9 top-6 text-4xl">☀</div><div class="absolute left-10 top-7 h-12 w-12 rounded-full bg-[#f5cf88]/80 blur-[1px]"></div>
-                </div>
-                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-[#7a8497]">Featured work</p><h3 class="mt-1 text-[17px] font-extrabold text-[#1c2a42]">Experience the Magic of Miami</h3></div><span class="text-[10px] font-bold text-[#78849a]">TRAVEL</span></div><div class="mt-3 flex flex-wrap gap-1.5"><span class="pill">Travel</span><span class="pill">SEO</span><span class="pill">Lifestyle</span></div><div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div></div>
+              <a href="https://blogs.travelfika.com/blogs/experience-the-magic-of-miami-a-summer-escape-in-the-sunshine-city" target="_blank" rel="noopener noreferrer" class="project-card group min-h-[280px]">
+                <div class="project-art h-[160px]"><img src="https://i.pinimg.com/736x/f9/76/c5/f976c5d8e58e631679188512be47ea89.jpg" alt="Miami travel highlights" class="h-full w-full object-cover" loading="lazy" /></div>
+                <div class="p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="text-[17px] font-extrabold text-[#1c2a42]">Experience the Magic of Miami</h3></div><span class="text-[11px] font-bold text-[#78849a]">ARTICLE</span></div><div class="mt-3"><span class="mini-link">Read <span>↗</span></span></div></div>
               </a>
             </div>
           </section>
 
           <!-- BOTTOM ROW -->
-          <section class="grid grid-cols-1 gap-5 xl:grid-cols-[.78fr_1.25fr_.78fr] scroll-reveal">
+          <section class="grid grid-cols-1 gap-5 xl:grid-cols-[.82fr_1.28fr_.82fr] scroll-reveal">
 
             <!-- Resume / writing samples -->
-            <div class="spa
+            <div class="space-y-3">
+              <a class="soft-link resume-link static-link flex min-h-[76px] items-center justify-between rounded-2xl px-5 py-4" href="https://docs.google.com/document/d/1EpXrp5lIqREeG-qmV9tL2PAPPRu1AeV6/export?format=pdf" target="_blank" rel="noopener noreferrer">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#e7ebf3] text-[#61708a]">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>
+                    </svg>
+                  </span>
+                  <span class="text-[14px] font-extrabold text-[#2a3850]">View My Resume</span>
+                </div>
+                <span class="text-[#7892bd]">↗</span>
+              </a>
+
+              <a class="soft-link samples-link static-link flex min-h-[76px] items-center justify-between rounded-2xl px-5 py-4" href="https://anugrahaa0506-cloud.github.io/Anugraha-Portfolio/#portfolio" target="_blank" rel="noopener noreferrer">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#e7ebf3] text-[#61708a]">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6"/>
+                    </svg>
+                  </span>
+                  <span class="text-[14px] font-extrabold text-[#2a3850]">Technical Writing Samples</span>
+                </div>
+                <span class="text-[#7892bd]">↗</span>
+              </a>
+            </div>
+
+            <!-- What I've worked on -->
+            <article class="inner-card min-h-0 p-3 sm:p-4">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="text-[17px] font-extrabold tracking-[-.02em] text-[#27354c]">What I Do</h2>
+                </div>
+                <span class="hidden text-xl text-[#9badd0] sm:block">✦</span>
+              </div>
+
+              <div class="mt-2 grid gap-x-4 gap-y-1.5 text-[13px] leading-[1.3] text-[#606c80] sm:grid-cols-2">
+                <p><strong class="text-[#36445b]">Travel:</strong> Destination guides, travel experiences, and FAQ content, including flight-related information.</p>
+                <p><strong class="text-[#36445b]">Lifestyle &amp; Home:</strong> Content around home improvement, décor, wellness, and everyday lifestyle topics.</p>
+                <p><strong class="text-[#36445b]">Brand &amp; Social:</strong> Website copy and social media content that communicate products, services, and brand value clearly.</p>
+                <p><strong class="text-[#36445b]">SEO &amp; Content Strategy:</strong> Keyword research, content calendars, search-focused writing, analytics, content audits, and content optimisation.</p>
+                <p class="sm:col-span-2"><strong class="text-[#36445b]">AI-Assisted Workflows:</strong> Using AI ethically alongside research, writing, and editing to make the content process more efficient.</p>
+              </div>
+            </article>
+
+            <!-- Clock -->
+            <article class="panel relative min-h-[110px] overflow-hidden p-5">
+              <div class="absolute -right-10 -top-14 h-40 w-40 rounded-full border-[18px] border-[#d8e1ef]/70"></div>
+              <div class="absolute -bottom-16 -left-10 h-40 w-40 rounded-full border-[18px] border-[#e5dff2]/70"></div>
+
+              <!-- cute animated plant -->
+              <div class="absolute right-8 top-7">
+                <div class="mx-auto h-12 w-3 rounded-full bg-[#d9c5a4]"></div>
+                <div class="relative -mt-3 h-11 w-20">
+                  <span class="absolute left-7 top-0 h-8 w-4 -rotate-35 rounded-full bg-[#87a88f]"></span>
+                  <span class="absolute left-12 top-2 h-8 w-4 rotate-35 rounded-full bg-[#6f987d]"></span>
+                  <span class="absolute left-2 top-4 h-7 w-4 -rotate-55 rounded-full bg-[#9bb7a1]"></span>
+                </div>
+                <div class="h-5 w-14 rounded-b-[12px] rounded-t-[5px] bg-[#d3a87e] shadow-md"></div>
+              </div>
+
+              <div class="relative z-10 mt-8">
+                <div class="flex items-end gap-2">
+                  <span id="clock" class="clock-digits text-[40px] font-black leading-none text-[#4b5260]">00:00</span>
+                </div>
+              </div>
+
+              <div class="absolute bottom-4 right-5 text-lg">✿</div>
+            </article>
+          </section>
+
+          <!-- EMAIL FOOTER -->
+          <footer class="flex flex-col gap-3 pb-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-[11px] font-semibold text-[#929aaa]">© <span id="year"></span> Anugraha S</p>
+            <a href="mailto:anugrahaa0506@gmail.com" class="group inline-flex items-center gap-3 self-start rounded-full bg-[#ff8a43] px-5 py-3 text-white shadow-[0_12px_24px_rgba(255,138,67,.28)] transition hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(255,138,67,.35)]">
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+                  <path d="m4 7 8 6 8-6"/>
+                </svg>
+              </span>
+              <span class="text-[13px] font-extrabold tracking-[.01em]">anugrahaa0506@gmail.com</span>
+            </a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Live clock
+    const clock = document.getElementById("clock");
+            const year = document.getElementById("year");
+
+    function updateClock() {
+      const now = new Date();
+      let h = now.getHours();
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
+      h = h % 12 || 12;
+      clock.textContent = `${String(h).padStart(2, "0")}:${m}`;
+      year.textContent = now.getFullYear();
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
